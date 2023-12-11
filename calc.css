@@ -1,0 +1,58 @@
+:root{
+  font-size: 3em;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12em;
+  font-family: Arial, Helvetica, sans-serif
+}
+.calcBody{
+  background-color: #1C1C1C;
+  width: 22%;
+  height: 100%;
+  border-radius: 1em;
+  margin: 1rem 0 0;
+}
+#screen{
+  font-size: 1.3rem;
+  text-align: right;
+  margin: 2rem 0.8rem 0;
+}
+.buttonsRowTop,
+.buttonsRow{
+  margin-inline: 0.4em;
+}
+#screen,
+.buttons,
+.buttonsDouble{
+  color: white;
+}
+.buttonsRowTop>button:nth-last-child(n+2){
+  color: black;
+  background-color: #D4D4D2;
+}
+.buttons:last-child{
+  background-color: #FF9500;;
+}
+.buttons,
+.buttonsDouble{
+  background-color: #505050;
+  font-size: 0.5em;
+  margin: 0.3em 0;
+}
+.buttons{
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: none;
+}
+.buttonsDouble{
+  text-align: left;
+  padding-inline: 1em 0;
+  width: 2.87rem;
+  height: 1.2rem;
+  border-radius: 3.4rem;
+  border: none;
+}
