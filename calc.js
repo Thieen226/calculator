@@ -3,6 +3,7 @@ let numbers = document.querySelectorAll("#numbers");
 let screen = document.getElementById("screen");
 let reset = document.getElementById("reset");
 let equal = document.getElementById("equal");
+let clickedNumbers = "";
 
 function showNums(e){
     let clickedNumbers = e.target.innerText;
@@ -16,11 +17,14 @@ function showNums(e){
 
 }
 
-function calcNums(operation){
-        let clickedOperations = operation.target.innerText;
-        if(clickedOperations === "÷"){
-            clickedOperations += -1;
-        }
+function calcNums(){
+        operations.forEach((e) => {
+            let clickedOperations = e.target.innerText;
+            if(clickedOperations === "÷"){
+                clickedOperations = parseFloat(clickedNumbers)/2;
+            }
+        })
+
     }
 
 
