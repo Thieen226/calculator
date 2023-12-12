@@ -12,6 +12,7 @@ function showNums(e){
     reset.onclick = function(){
         screen.innerText = 0;
     }
+    calcNums();
 
 
 }
