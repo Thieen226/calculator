@@ -1,34 +1,63 @@
-let operations = document.querySelectorAll("#operations");
-let numbers = document.querySelectorAll("#numbers");
+let buttons = document.querySelectorAll(".buttons");
 let screen = document.getElementById("screen");
-let reset = document.getElementById("reset");
-let equal = document.getElementById("equal");
+let firstNumber = 0;
+let secondNumber = 0;
+let operation = "";
 
-function showNums(e){
-    let clickedNumbers = e.target.innerText;
-    screen.innerText = clickedNumbers;
-
-    //when AC button is clicked then reset it to 0
-    reset.onclick = function(){
-        screen.innerText = 0;
-    }
-    calcNums();
-
-
-}
-
-function calcNums(operation){
-        let clickedOperations = operation.target.innerText;
-        if(clickedOperations === "÷"){
-            clickedOperations += -1;
+function handleClick(e){
+    let buttonClicked = e.target; 
+    if(!isNaN(buttonClicked.innerText) || buttonClicked.innerText === "."){
+        if(screen.innerText === "0"){
+            screen.innerText = buttonClicked.innerText;
+        }
+        else{
+            screen.innerText += buttonClicked.innerText;
         }
     }
+    else if(buttonClicked.innerText === "AC"){
+        screen.innerText = 0;
+    }
+    else if(buttonClicked.innerText === "+" || buttonClicked.innerText === "-" || buttonClicked.innerText === "x" || buttonClicked.innerText === "÷"){
+        firstNumber = screen.innerText;
+        operation = buttonClicked.innerText;
+        screen.innerText = 0;
+    }
+    else{
+        secondNumber = screen.innerText;
+        if(operation === "+"){
+            addNumbers(parseFloat(firstNumber), parseFloat(secondNumber));
+        }
+        if(operation === "-"){
+            subtractNumbers(parseFloat(firstNumber), parseFloat(secondNumber));
+        }
+        if(operation === "÷"){
+            divideNumbers(parseFloat(firstNumber), parseFloat(secondNumber));
+            if(secondNumber === "0"){
+                screen.innerText = "error";
+            }
+        }
+        if(operation === "x"){
+            multiplyNumbers(parseFloat(firstNumber), parseFloat(secondNumber));
+        }
+    }
+}
 
+function addNumbers(num1, num2){
+    screen.innerText = (num1 + num2);
+}
 
-numbers.forEach((number) => {
-    number.addEventListener("click", showNums);
-})
+function subtractNumbers(num1, num2){
+    screen.innerText = num1 - num2;
+}
 
-operations.forEach((operation) => {
-    operation.addEventListener("click", calcNums);
+function divideNumbers(num1, num2){
+    screen.innerText = num1/num2;
+}
+
+function multiplyNumbers(num1, num2){
+    screen.innerText = num1*num2;
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", handleClick);
 })
