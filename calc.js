@@ -78,7 +78,7 @@ function divideNumbers(num1, num2){
 }
 
 function multiplyNumbers(num1, num2){
-    screen.innerText = parseFloat(num1) - parseFloat(num2);
+    screen.innerText = parseFloat(num1) * parseFloat(num2);
 }
 
 //everytime the button is clicked execute handleClick function
