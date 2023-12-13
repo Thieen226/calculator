@@ -1,17 +1,22 @@
 let buttons = document.querySelectorAll(".buttons");
 let screen = document.getElementById("screen");
-let firstNumber = 0;
+let firstNumber = 0; 
 let secondNumber = 0;
 let operation = "";
 
 function handleClick(e){
     let buttonClicked = e.target; 
-    if(!isNaN(buttonClicked.innerText) || buttonClicked.innerText === "."){
-        if(screen.innerText === "0"){
+    if(!isNaN(buttonClicked.innerText)){
+        if(screen.innerText === "0" || buttonClicked.innerText === "."){
             screen.innerText = buttonClicked.innerText;
         }
         else{
             screen.innerText += buttonClicked.innerText;
+        }
+    }
+    else if(buttonClicked.innerText === "."){
+        if(screen.innerText === "0"){
+            screen.innerText = "0" + buttonClicked.innerText;
         }
     }
     else if(buttonClicked.innerText === "AC"){
