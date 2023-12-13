@@ -41,29 +41,29 @@ function handleClick(e){
     else{
         secondNumber = screen.innerText;
         if(operation === "+"){
-            addNumbers((firstNumber), (secondNumber));
+            addNumbers(firstNumber, secondNumber);
         }
         if(operation === "-"){
-            subtractNumbers((firstNumber), (secondNumber));
+            subtractNumbers(firstNumber, secondNumber);
         }
         if(operation === "÷"){
-            divideNumbers((firstNumber), (secondNumber));
+            divideNumbers(firstNumber, secondNumber);
             if(secondNumber === "0"){
                 screen.innerText = "error";
             }
         }
         if(operation === "x"){
-            multiplyNumbers((firstNumber), (secondNumber));
+            multiplyNumbers(firstNumber, secondNumber);
         }
     }
 }
 
 function addNumbers(num1, num2){
-    screen.innerText = num1 + num2;
+    screen.innerText = parseFloat(num1) + parseFloat(num2);
 }
 
 function subtractNumbers(num1, num2){
-    screen.innerText = num1 - num2;
+    screen.innerText = parseFloat(num1) - parseFloat(num2);
 }
 
 function divideNumbers(num1, num2){
@@ -78,7 +78,7 @@ function divideNumbers(num1, num2){
 }
 
 function multiplyNumbers(num1, num2){
-    screen.innerText = num1*num2;
+    screen.innerText = parseFloat(num1) - parseFloat(num2);
 }
 
 //everytime the button is clicked execute handleClick function
