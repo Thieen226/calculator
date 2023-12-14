@@ -107,7 +107,7 @@ function multiplyNumbers(num1, num2){
     }
 }
 
-//everytime the button is clicked execute handleClick function
+//everytime the button is clicked then execute handleClick function
 buttons.forEach((button) => {
     button.addEventListener("click", handleClick);
 })
