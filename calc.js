@@ -61,9 +61,11 @@ function handleClick(e){
 
 function addNumbers(num1, num2){
     result = num1 + num2;
+    //check if the result is not interger then the result would have 3 decimal places
     if(!Number.isInteger(result)){
         screen.innerText = (parseFloat(num1) + parseFloat(num2)).toPrecision(3);
     }
+    //if the result is interger then just display it on the screen
     else{
         screen.innerText = parseFloat(num1) + parseFloat(num2);
     }
@@ -71,9 +73,11 @@ function addNumbers(num1, num2){
 
 function subtractNumbers(num1, num2){
     result = num1 - num2;
+    //check if the result is not interger then the result would have 3 decimal places
     if(!Number.isInteger(result)){
         screen.innerText = (parseFloat(num1) - parseFloat(num2)).toPrecision(3);
     }
+    //if the result is interger then just display it on the screen
     else{
         screen.innerText = parseFloat(num1) - parseFloat(num2);
     }
@@ -81,10 +85,11 @@ function subtractNumbers(num1, num2){
 
 function divideNumbers(num1, num2){
     //use if else statement to check if the calculation give recurring decimal ex. 0.3333333333...
-    //check if the first number is smaller than second number then display the result with 5 decimal
+    //check if the first number is smaller than second number then display the result with 4 decimal
     if(num1 < num2){
         screen.innerText = (parseFloat(num1)/parseFloat(num2)).toPrecision(4);
     }
+    //if the first number is smaller than second number then just display it on the screen
     else{
         screen.innerText = num1/num2;
     }
@@ -93,8 +98,10 @@ function divideNumbers(num1, num2){
 function multiplyNumbers(num1, num2){
     result = num1 * num2;
     if(!Number.isInteger(result)){
+        //check if the result is not interger then the result would have 3 decimal places
         screen.innerText = (parseFloat(num1) * parseFloat(num2)).toPrecision(3);
     }
+    //if the result is interger then just display it on the screen
     else{
         screen.innerText = parseFloat(num1) * parseFloat(num2);
     }
