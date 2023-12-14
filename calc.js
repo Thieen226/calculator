@@ -3,6 +3,7 @@ let screen = document.getElementById("screen");
 let firstNumber = 0; //keep track of first number
 let secondNumber = 0; //keep track of second number
 let operation = ""; //keep track of clicked operator buttons
+let result = 0; //keep track of the result of the calculator
 
 function handleClick(e){
     let buttonClicked = e.target; 
@@ -59,18 +60,30 @@ function handleClick(e){
 }
 
 function addNumbers(num1, num2){
-    screen.innerText = parseFloat(num1) + parseFloat(num2);
+    result = num1 + num2;
+    if(!Number.isInteger(result)){
+        screen.innerText = (parseFloat(num1) + parseFloat(num2)).toPrecision(3);
+    }
+    else{
+        screen.innerText = parseFloat(num1) + parseFloat(num2);
+    }
 }
 
 function subtractNumbers(num1, num2){
-    screen.innerText = parseFloat(num1) - parseFloat(num2);
+    result = num1 - num2;
+    if(!Number.isInteger(result)){
+        screen.innerText = (parseFloat(num1) - parseFloat(num2)).toPrecision(3);
+    }
+    else{
+        screen.innerText = parseFloat(num1) - parseFloat(num2);
+    }
 }
 
 function divideNumbers(num1, num2){
     //use if else statement to check if the calculation give recurring decimal ex. 0.3333333333...
     //check if the first number is smaller than second number then display the result with 5 decimal
     if(num1 < num2){
-        screen.innerText = (parseFloat(num1)/parseFloat(num2)).toPrecision(5);
+        screen.innerText = (parseFloat(num1)/parseFloat(num2)).toPrecision(4);
     }
     else{
         screen.innerText = num1/num2;
@@ -78,7 +91,13 @@ function divideNumbers(num1, num2){
 }
 
 function multiplyNumbers(num1, num2){
-    screen.innerText = parseFloat(num1) * parseFloat(num2);
+    result = num1 * num2;
+    if(!Number.isInteger(result)){
+        screen.innerText = (parseFloat(num1) * parseFloat(num2)).toPrecision(3);
+    }
+    else{
+        screen.innerText = parseFloat(num1) * parseFloat(num2);
+    }
 }
 
 //everytime the button is clicked execute handleClick function
